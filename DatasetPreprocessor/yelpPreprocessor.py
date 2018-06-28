@@ -348,7 +348,8 @@ class YelpPreprocessor:
         fpointerOutParams.write(
             'TrainingInstances: %d\n'%( arrayTrainConcatenated.shape[0] ) +
             'TestingInstances: %d\n'%( arrayTestConcatenated.shape[0] ) + 
-            'DocumentSeqLen: %d\n'%( tensorTrainReviewsTokenizedCharEncoded.size(1) ) + # size(0) is the instanceCount
+            'DocumentSeqTrainLen (DocumentSeqLen when training): %d\n'%( tensorTrainReviewsTokenizedCharEncoded.size(1) ) + # size(0) is the instanceCount
+            'DocumentSeqTestLen (DocumentSeqLen when testing): %d\n'%( tensorTestReviewsTokenizedCharEncoded.size(1) ) + # size(0) is the instanceCount
             'CharacterEmbeddingLen: %d\n'%( tensorTrainReviewsTokenizedCharEncoded.size(2) ) 
             )
         fpointerOutParams.close()
@@ -426,7 +427,7 @@ class YelpPreprocessor:
         fpointerOutParams = open( paramFpathOutParams, 'wt', encoding = 'utf8' )
         fpointerOutParams.write(
             'TestingInstances: %d\n'%( arrayTxtTokenizedCharEncoded.shape[0] ) +
-            'DocumentSeqLen: %d\n'%( tensorTxtTokenizedCharEncoded.size(1) ) + # size(0) is the instanceCount
+            'DocumentSeqTestLen: %d\n'%( tensorTxtTokenizedCharEncoded.size(1) ) + # size(0) is the instanceCount
             'CharacterEmbeddingLen: %d\n'%( tensorTxtTokenizedCharEncoded.size(2) ) 
             )
         fpointerOutParams.close()

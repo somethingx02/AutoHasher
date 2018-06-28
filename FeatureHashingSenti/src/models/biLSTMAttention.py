@@ -96,10 +96,17 @@ class BiLSTMAttention(torch.nn.Module):
             assert self.document_seq_len == doc_seq_len
             assert self.character_embedding_len == char_emb_len
 
-            list_elmo_rep = self.elmo_layer( param_input )['elmo_representations'][0]
+            list_elmo_rep = self.elmo_layer( param_input )['elmo_representations']
+            var_elmo_rep = list_elmo_rep[0]
             # since num_output_representations = 1, so len(list_elmo_rep) = 1, 
             # if num_output_representations == 2, then will produce 2 same elmo_representations of [batch_size, seq_len, wordembedding_len]
-            var_elmo_rep = torch.cat( list_elmo_rep, dim = 0 ) # concatenate seq of tensors
+            
+            ##----------an alternative
+            #list_elmo_rep = self.elmo_layer( param_input )['elmo_representations']
+            #var_elmo_rep = torch.cat( list_elmo_rep, dim = 0 ) # concatenate seq of tensors
+            ##e.g.: [(8,23,50),(8,23,50)] -> (16,23,50), so here: [(8,23,50)] -> (8,23,50)
+            ##----------an alternative
+
             #print( var_elmo_rep.size() )
             var_elmo_rep = var_elmo_rep.permute( 1, 0, 2 ) # not batch_first
             

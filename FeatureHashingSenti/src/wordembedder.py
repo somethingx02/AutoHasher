@@ -552,7 +552,7 @@ def compute_elmo_rep(model_dir, input_list, mtype = 'BiLSTMAttention'):
 if __name__=='__main__':
     
     ##==========Train with the training set
-    #train(  )
+    train(  )
 
     ##==========Predict with the testing set
     #predict('%s/0'%SAVE_DIR)
@@ -573,12 +573,12 @@ if __name__=='__main__':
     ##==========Load the trained model, compute the representations 
     ##          for a list of text documents
 
-    list_docs = [ 'Hello RiverBank!!?? This is document 1.',
-                    'Hi Bank, This is document 2.']
-    array_embedded_docs = compute_elmo_rep(model_dir = '%s/0'%SAVE_DIR,
-        input_list = list_docs)
-    print( array_embedded_docs.shape )
-    print( array_embedded_docs )
+    # list_docs = [ 'Hello RiverBank!!?? This is document 1.',
+    #                 'Hi Bank, This is document 2.']
+    # array_embedded_docs = compute_elmo_rep(model_dir = '%s/0'%SAVE_DIR,
+    #     input_list = list_docs)
+    # print( array_embedded_docs.shape )
+    # print( array_embedded_docs )
 
 
     # elmo_dict = model.forward_obtainTrainedElmoRep(x)
