@@ -1,0 +1,124 @@
+2018-06-22 13:09:00,122 - Model run on GPU
+2018-06-22 13:09:03,332 - Model initialized on GPU
+2018-06-22 13:09:03,333 - BiLSTMAttention
+2018-06-22 13:09:03,333 - {'batch_size': 16, 'epochs': 8, 'learning_rate': 0.0005, 'lr_decay': 0.9, 'weight_decay': 0.0001, 'model': 'BiLSTMAttention', 'on_cuda': True, 'options_file': 'https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json', 'weight_file': 'https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5'}
+2018-06-22 13:15:03,721 - TRAIN	epoch: 0/8	batch: 49/625	loss: 14.552296	accuracy: 0.875000
+2018-06-22 13:16:39,862 - TRAIN	epoch: 0/8	batch: 99/625	loss: 13.839034	accuracy: 0.875000
+2018-06-22 13:18:10,515 - TRAIN	epoch: 0/8	batch: 149/625	loss: 13.130268	accuracy: 0.625000
+2018-06-22 13:19:41,331 - TRAIN	epoch: 0/8	batch: 199/625	loss: 12.684876	accuracy: 0.750000
+2018-06-22 13:21:13,575 - TRAIN	epoch: 0/8	batch: 249/625	loss: 12.393475	accuracy: 0.875000
+2018-06-22 13:22:43,904 - TRAIN	epoch: 0/8	batch: 299/625	loss: 12.106404	accuracy: 0.812500
+2018-06-22 13:24:15,420 - TRAIN	epoch: 0/8	batch: 349/625	loss: 11.912493	accuracy: 0.937500
+2018-06-22 13:25:47,083 - TRAIN	epoch: 0/8	batch: 399/625	loss: 11.869332	accuracy: 0.812500
+2018-06-22 13:27:18,758 - TRAIN	epoch: 0/8	batch: 449/625	loss: 11.874696	accuracy: 0.750000
+2018-06-22 13:28:50,233 - TRAIN	epoch: 0/8	batch: 499/625	loss: 11.808789	accuracy: 0.687500
+2018-06-22 13:30:22,778 - TRAIN	epoch: 0/8	batch: 549/625	loss: 11.654822	accuracy: 0.812500
+2018-06-22 13:31:56,042 - TRAIN	epoch: 0/8	batch: 599/625	loss: 11.474087	accuracy: 0.937500
+2018-06-22 13:32:39,710 - epoch: 0/8	average_loss: 11.429641	accuracy: 0.776242
+2018-06-22 13:32:42,140 - model saved to /media/data1/lixing/2017_2018_2_Aston/ElmoProj/FeatureHashingSenti/save/24/model
+2018-06-22 13:32:42,140 - learning_rate changed to 0.000450
+2018-06-22 13:34:15,309 - TRAIN	epoch: 1/8	batch: 49/625	loss: 8.959293	accuracy: 0.875000
+2018-06-22 13:35:51,501 - TRAIN	epoch: 1/8	batch: 99/625	loss: 9.491166	accuracy: 0.875000
+2018-06-22 13:37:21,884 - TRAIN	epoch: 1/8	batch: 149/625	loss: 9.671919	accuracy: 0.750000
+2018-06-22 13:38:53,041 - TRAIN	epoch: 1/8	batch: 199/625	loss: 9.609090	accuracy: 0.812500
+2018-06-22 13:40:25,186 - TRAIN	epoch: 1/8	batch: 249/625	loss: 9.432774	accuracy: 0.875000
+2018-06-22 13:41:55,668 - TRAIN	epoch: 1/8	batch: 299/625	loss: 9.465778	accuracy: 0.875000
+2018-06-22 13:43:27,850 - TRAIN	epoch: 1/8	batch: 349/625	loss: 9.467702	accuracy: 0.937500
+2018-06-22 13:44:59,203 - TRAIN	epoch: 1/8	batch: 399/625	loss: 9.468193	accuracy: 0.875000
+2018-06-22 13:46:30,971 - TRAIN	epoch: 1/8	batch: 449/625	loss: 9.547262	accuracy: 0.687500
+2018-06-22 13:48:02,706 - TRAIN	epoch: 1/8	batch: 499/625	loss: 9.546851	accuracy: 0.812500
+2018-06-22 13:49:35,394 - TRAIN	epoch: 1/8	batch: 549/625	loss: 9.491698	accuracy: 0.812500
+2018-06-22 13:51:09,200 - TRAIN	epoch: 1/8	batch: 599/625	loss: 9.437381	accuracy: 0.937500
+2018-06-22 13:51:53,273 - epoch: 1/8	average_loss: 9.423166	accuracy: 0.813802
+2018-06-22 13:51:55,815 - model saved to /media/data1/lixing/2017_2018_2_Aston/ElmoProj/FeatureHashingSenti/save/24/model
+2018-06-22 13:51:55,815 - learning_rate changed to 0.000405
+2018-06-22 13:53:29,362 - TRAIN	epoch: 2/8	batch: 49/625	loss: 8.619496	accuracy: 0.875000
+2018-06-22 13:55:05,569 - TRAIN	epoch: 2/8	batch: 99/625	loss: 8.713328	accuracy: 0.875000
+2018-06-22 13:56:36,222 - TRAIN	epoch: 2/8	batch: 149/625	loss: 8.675954	accuracy: 0.687500
+2018-06-22 13:58:07,719 - TRAIN	epoch: 2/8	batch: 199/625	loss: 8.539510	accuracy: 0.812500
+2018-06-22 13:59:40,503 - TRAIN	epoch: 2/8	batch: 249/625	loss: 8.478106	accuracy: 0.875000
+2018-06-22 14:01:11,232 - TRAIN	epoch: 2/8	batch: 299/625	loss: 8.414567	accuracy: 0.875000
+2018-06-22 14:02:43,204 - TRAIN	epoch: 2/8	batch: 349/625	loss: 8.418424	accuracy: 1.000000
+2018-06-22 14:04:14,999 - TRAIN	epoch: 2/8	batch: 399/625	loss: 8.437622	accuracy: 0.812500
+2018-06-22 14:05:46,713 - TRAIN	epoch: 2/8	batch: 449/625	loss: 8.512800	accuracy: 0.687500
+2018-06-22 14:07:18,500 - TRAIN	epoch: 2/8	batch: 499/625	loss: 8.474430	accuracy: 0.875000
+2018-06-22 14:08:50,787 - TRAIN	epoch: 2/8	batch: 549/625	loss: 8.419317	accuracy: 0.812500
+2018-06-22 14:10:24,537 - TRAIN	epoch: 2/8	batch: 599/625	loss: 8.393215	accuracy: 0.875000
+2018-06-22 14:11:08,483 - epoch: 2/8	average_loss: 8.395369	accuracy: 0.824119
+2018-06-22 14:11:11,222 - model saved to /media/data1/lixing/2017_2018_2_Aston/ElmoProj/FeatureHashingSenti/save/24/model
+2018-06-22 14:11:11,222 - learning_rate changed to 0.000365
+2018-06-22 14:12:45,010 - TRAIN	epoch: 3/8	batch: 49/625	loss: 8.151308	accuracy: 0.875000
+2018-06-22 14:14:21,212 - TRAIN	epoch: 3/8	batch: 99/625	loss: 8.178557	accuracy: 0.937500
+2018-06-22 14:15:52,437 - TRAIN	epoch: 3/8	batch: 149/625	loss: 8.224714	accuracy: 0.750000
+2018-06-22 14:17:23,749 - TRAIN	epoch: 3/8	batch: 199/625	loss: 8.093536	accuracy: 0.750000
+2018-06-22 14:18:56,016 - TRAIN	epoch: 3/8	batch: 249/625	loss: 8.209552	accuracy: 0.937500
+2018-06-22 14:20:26,630 - TRAIN	epoch: 3/8	batch: 299/625	loss: 8.128177	accuracy: 0.937500
+2018-06-22 14:21:58,405 - TRAIN	epoch: 3/8	batch: 349/625	loss: 8.101768	accuracy: 1.000000
+2018-06-22 14:23:29,966 - TRAIN	epoch: 3/8	batch: 399/625	loss: 8.100525	accuracy: 0.812500
+2018-06-22 14:25:01,603 - TRAIN	epoch: 3/8	batch: 449/625	loss: 8.125213	accuracy: 0.750000
+2018-06-22 14:26:33,413 - TRAIN	epoch: 3/8	batch: 499/625	loss: 8.120815	accuracy: 0.750000
+2018-06-22 14:28:06,066 - TRAIN	epoch: 3/8	batch: 549/625	loss: 8.107902	accuracy: 0.812500
+2018-06-22 14:29:40,064 - TRAIN	epoch: 3/8	batch: 599/625	loss: 8.091437	accuracy: 0.812500
+2018-06-22 14:30:24,371 - epoch: 3/8	average_loss: 8.079673	accuracy: 0.830028
+2018-06-22 14:30:27,100 - model saved to /media/data1/lixing/2017_2018_2_Aston/ElmoProj/FeatureHashingSenti/save/24/model
+2018-06-22 14:30:27,100 - learning_rate changed to 0.000328
+2018-06-22 14:32:00,475 - TRAIN	epoch: 4/8	batch: 49/625	loss: 7.464017	accuracy: 0.875000
+2018-06-22 14:33:36,431 - TRAIN	epoch: 4/8	batch: 99/625	loss: 7.828477	accuracy: 0.937500
+2018-06-22 14:35:07,456 - TRAIN	epoch: 4/8	batch: 149/625	loss: 7.897077	accuracy: 0.687500
+2018-06-22 14:36:38,730 - TRAIN	epoch: 4/8	batch: 199/625	loss: 7.760346	accuracy: 0.875000
+2018-06-22 14:38:11,410 - TRAIN	epoch: 4/8	batch: 249/625	loss: 7.653834	accuracy: 0.875000
+2018-06-22 14:39:41,951 - TRAIN	epoch: 4/8	batch: 299/625	loss: 7.555575	accuracy: 0.937500
+2018-06-22 14:41:14,096 - TRAIN	epoch: 4/8	batch: 349/625	loss: 7.538703	accuracy: 0.875000
+2018-06-22 14:42:46,082 - TRAIN	epoch: 4/8	batch: 399/625	loss: 7.502373	accuracy: 0.937500
+2018-06-22 14:44:17,658 - TRAIN	epoch: 4/8	batch: 449/625	loss: 7.557202	accuracy: 0.750000
+2018-06-22 14:45:49,566 - TRAIN	epoch: 4/8	batch: 499/625	loss: 7.441657	accuracy: 0.875000
+2018-06-22 14:47:22,094 - TRAIN	epoch: 4/8	batch: 549/625	loss: 7.429015	accuracy: 0.875000
+2018-06-22 14:48:55,987 - TRAIN	epoch: 4/8	batch: 599/625	loss: 7.424630	accuracy: 0.875000
+2018-06-22 14:49:39,985 - epoch: 4/8	average_loss: 7.429196	accuracy: 0.838341
+2018-06-22 14:49:42,856 - model saved to /media/data1/lixing/2017_2018_2_Aston/ElmoProj/FeatureHashingSenti/save/24/model
+2018-06-22 14:49:42,856 - learning_rate changed to 0.000295
+2018-06-22 14:51:16,730 - TRAIN	epoch: 5/8	batch: 49/625	loss: 7.035687	accuracy: 0.875000
+2018-06-22 14:52:52,924 - TRAIN	epoch: 5/8	batch: 99/625	loss: 7.106596	accuracy: 0.937500
+2018-06-22 14:54:23,530 - TRAIN	epoch: 5/8	batch: 149/625	loss: 7.147427	accuracy: 0.812500
+2018-06-22 14:55:54,774 - TRAIN	epoch: 5/8	batch: 199/625	loss: 7.061691	accuracy: 0.812500
+2018-06-22 14:57:27,434 - TRAIN	epoch: 5/8	batch: 249/625	loss: 7.030515	accuracy: 0.875000
+2018-06-22 14:58:58,246 - TRAIN	epoch: 5/8	batch: 299/625	loss: 6.976527	accuracy: 0.937500
+2018-06-22 15:00:30,179 - TRAIN	epoch: 5/8	batch: 349/625	loss: 6.970321	accuracy: 0.875000
+2018-06-22 15:02:02,067 - TRAIN	epoch: 5/8	batch: 399/625	loss: 6.951475	accuracy: 0.937500
+2018-06-22 15:03:33,579 - TRAIN	epoch: 5/8	batch: 449/625	loss: 6.971352	accuracy: 0.812500
+2018-06-22 15:05:05,553 - TRAIN	epoch: 5/8	batch: 499/625	loss: 6.904164	accuracy: 0.875000
+2018-06-22 15:06:38,343 - TRAIN	epoch: 5/8	batch: 549/625	loss: 6.912698	accuracy: 0.812500
+2018-06-22 15:08:12,754 - TRAIN	epoch: 5/8	batch: 599/625	loss: 6.902592	accuracy: 0.937500
+2018-06-22 15:08:56,781 - epoch: 5/8	average_loss: 6.897858	accuracy: 0.844151
+2018-06-22 15:08:59,522 - model saved to /media/data1/lixing/2017_2018_2_Aston/ElmoProj/FeatureHashingSenti/save/24/model
+2018-06-22 15:08:59,522 - learning_rate changed to 0.000266
+2018-06-22 15:10:32,984 - TRAIN	epoch: 6/8	batch: 49/625	loss: 6.512951	accuracy: 0.875000
+2018-06-22 15:12:09,362 - TRAIN	epoch: 6/8	batch: 99/625	loss: 6.481676	accuracy: 0.875000
+2018-06-22 15:13:39,960 - TRAIN	epoch: 6/8	batch: 149/625	loss: 6.651019	accuracy: 0.750000
+2018-06-22 15:15:11,217 - TRAIN	epoch: 6/8	batch: 199/625	loss: 6.537981	accuracy: 0.812500
+2018-06-22 15:16:43,795 - TRAIN	epoch: 6/8	batch: 249/625	loss: 6.533767	accuracy: 0.937500
+2018-06-22 15:18:14,198 - TRAIN	epoch: 6/8	batch: 299/625	loss: 6.412387	accuracy: 1.000000
+2018-06-22 15:19:45,905 - TRAIN	epoch: 6/8	batch: 349/625	loss: 6.365058	accuracy: 0.812500
+2018-06-22 15:21:17,554 - TRAIN	epoch: 6/8	batch: 399/625	loss: 6.349399	accuracy: 0.937500
+2018-06-22 15:22:49,131 - TRAIN	epoch: 6/8	batch: 449/625	loss: 6.326571	accuracy: 0.750000
+2018-06-22 15:24:20,757 - TRAIN	epoch: 6/8	batch: 499/625	loss: 6.282029	accuracy: 0.750000
+2018-06-22 15:25:53,223 - TRAIN	epoch: 6/8	batch: 549/625	loss: 6.284778	accuracy: 0.812500
+2018-06-22 15:27:27,352 - TRAIN	epoch: 6/8	batch: 599/625	loss: 6.302857	accuracy: 0.937500
+2018-06-22 15:28:11,352 - epoch: 6/8	average_loss: 6.300699	accuracy: 0.852865
+2018-06-22 15:28:14,234 - model saved to /media/data1/lixing/2017_2018_2_Aston/ElmoProj/FeatureHashingSenti/save/24/model
+2018-06-22 15:28:14,234 - learning_rate changed to 0.000239
+2018-06-22 15:29:47,805 - TRAIN	epoch: 7/8	batch: 49/625	loss: 6.094467	accuracy: 0.812500
+2018-06-22 15:31:24,015 - TRAIN	epoch: 7/8	batch: 99/625	loss: 6.058131	accuracy: 0.937500
+2018-06-22 15:32:54,848 - TRAIN	epoch: 7/8	batch: 149/625	loss: 6.115202	accuracy: 0.750000
+2018-06-22 15:34:25,984 - TRAIN	epoch: 7/8	batch: 199/625	loss: 6.067719	accuracy: 0.875000
+2018-06-22 15:35:58,470 - TRAIN	epoch: 7/8	batch: 249/625	loss: 6.094713	accuracy: 0.937500
+2018-06-22 15:37:28,827 - TRAIN	epoch: 7/8	batch: 299/625	loss: 5.964141	accuracy: 0.937500
+2018-06-22 15:39:00,876 - TRAIN	epoch: 7/8	batch: 349/625	loss: 5.845678	accuracy: 0.937500
+2018-06-22 15:40:32,496 - TRAIN	epoch: 7/8	batch: 399/625	loss: 5.805856	accuracy: 0.875000
+2018-06-22 15:42:03,975 - TRAIN	epoch: 7/8	batch: 449/625	loss: 5.795575	accuracy: 0.812500
+2018-06-22 15:43:35,488 - TRAIN	epoch: 7/8	batch: 499/625	loss: 5.731958	accuracy: 0.875000
+2018-06-22 15:45:07,973 - TRAIN	epoch: 7/8	batch: 549/625	loss: 5.723493	accuracy: 0.812500
+2018-06-22 15:46:41,973 - TRAIN	epoch: 7/8	batch: 599/625	loss: 5.777095	accuracy: 0.875000
+2018-06-22 15:47:26,064 - epoch: 7/8	average_loss: 5.775744	accuracy: 0.865385
+2018-06-22 15:47:28,928 - model saved to /media/data1/lixing/2017_2018_2_Aston/ElmoProj/FeatureHashingSenti/save/24/model
+2018-06-22 15:47:28,928 - learning_rate changed to 0.000215
