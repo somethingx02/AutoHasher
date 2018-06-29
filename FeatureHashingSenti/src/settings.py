@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 
 #ROOT_DIR = '.' #the root path, currently is the code execution path
-ROOT_DIR = '/media/data1/lixing/2017_2018_2_Aston/ElmoProj/FeatureHashingSenti'
+ROOT_DIR = '/media/data1/lixing/2017_2018_2_Aston/AutoHasher/FeatureHashingSenti'
 
 TRAIN_SET_PATH = '%s/datasets/clinical_reviews_train.csv'%ROOT_DIR
 TEST_SET_PATH = '%s/datasets/clinical_reviews_test.csv'%ROOT_DIR
