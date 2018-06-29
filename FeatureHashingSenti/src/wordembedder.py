@@ -570,19 +570,19 @@ if __name__=='__main__':
     
     ##==========Load the trained model, compute and save the representation
     ##          for TokenizedCharEmbedded documents
-    save_elmo_rep( model_dir = '%s/0'%SAVE_DIR, 
-        input_path = '%s/datasets/clinical_reviews_tokenized_charencoded.txt'%ROOT_DIR, 
-        output_path = '%s/0/clinical_reviews_embedded.txt'%SAVE_DIR)
+    # save_elmo_rep( model_dir = '%s/0'%SAVE_DIR, 
+    #     input_path = '%s/datasets/clinical_reviews_tokenized_charencoded.txt'%ROOT_DIR, 
+    #     output_path = '%s/0/clinical_reviews_embedded.txt'%SAVE_DIR)
 
     ##==========Load the trained model, compute the representations 
     ##          for a list of text documents
 
-    # list_docs = [ 'Hello RiverBank!!?? This is document 1.',
-    #                 'Hi Bank, This is document 2.']
-    # array_embedded_docs = compute_elmo_rep(model_dir = '%s/0'%SAVE_DIR,
-    #     input_list = list_docs)
-    # print( array_embedded_docs.shape )
-    # print( array_embedded_docs )
+    list_docs = [ 'Hello RiverBank!!?? This is document 1.',
+                    'Hi Bank, This is document 2.']
+    array_embedded_docs = compute_elmo_rep(model_dir = '%s/0'%SAVE_DIR,
+        input_list = list_docs)
+    print( array_embedded_docs.shape )
+    print( array_embedded_docs )
 
 
     # elmo_dict = model.forward_obtainTrainedElmoRep(x)
