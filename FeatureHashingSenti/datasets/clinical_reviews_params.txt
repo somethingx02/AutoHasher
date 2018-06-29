@@ -1,0 +1,4 @@
+TrainingInstances: 10000
+TestingInstances: 5739
+DocumentSeqLen: 1219
+CharacterEmbeddingLen: 50
