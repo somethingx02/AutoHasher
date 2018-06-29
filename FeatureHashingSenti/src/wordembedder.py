@@ -346,8 +346,9 @@ def save_elmo_rep_testset(model_dir, output_path, mtype='BiLSTMAttention'):
         else:
             x = x.cpu()
         elmo_dict = model.forward_obtainTrainedElmoRep(x)
-        elmo_rep = elmo_dict['elmo_representations']
-        var_elmo_rep = torch.cat( elmo_rep, dim = 0 ) # concatenate seq of tensors
+        #elmo_rep = elmo_dict['elmo_representations']
+        #var_elmo_rep = torch.cat( elmo_rep, dim = 0 ) # concatenate seq of tensors
+        var_elmo_rep = elmo_dict['elmo_representations'][0]
         var_elmo_rep = var_elmo_rep.view(config.batch_size, DOCUMENT_SEQ_LEN * 1024 ) # 1024 is the Elmo size, fixed
 
         res = numpy.append( res, var_elmo_rep.data.cpu().numpy(), axis = 0 )
@@ -365,8 +366,9 @@ def save_elmo_rep_testset(model_dir, output_path, mtype='BiLSTMAttention'):
         else:
             x = x.cpu()
         elmo_dict = model.forward_obtainTrainedElmoRep(x)
-        elmo_rep = elmo_dict['elmo_representations']
-        var_elmo_rep = torch.cat( elmo_rep, dim = 0 ) # concatenate seq of tensors
+        #elmo_rep = elmo_dict['elmo_representations']
+        #var_elmo_rep = torch.cat( elmo_rep, dim = 0 ) # concatenate seq of tensors
+        var_elmo_rep = elmo_dict['elmo_representations'][0]
         var_elmo_rep = var_elmo_rep.view(config.batch_size, DOCUMENT_SEQ_LEN * 1024 ) # 1024 is the Elmo size, fixed
 
         res = numpy.append( res, var_elmo_rep.data.cpu().numpy(), axis = 0 )
@@ -448,8 +450,9 @@ def save_elmo_rep(model_dir, input_path, output_path, mtype='BiLSTMAttention'):
         else:
             x = x.cpu()
         elmo_dict = model.forward_obtainTrainedElmoRep(x)
-        elmo_rep = elmo_dict['elmo_representations'][0]
-        var_elmo_rep = torch.cat( elmo_rep, dim = 0 ) # concatenate seq of tensors
+        #elmo_rep = elmo_dict['elmo_representations']
+        #var_elmo_rep = torch.cat( elmo_rep, dim = 0 ) # concatenate seq of tensors
+        var_elmo_rep = elmo_dict['elmo_representations'][0]
         var_elmo_rep = var_elmo_rep.view(config.batch_size, DOCUMENT_SEQ_LEN * 1024 ) # 1024 is the Elmo size, fixed
 
         res = numpy.append( res, var_elmo_rep.data.cpu().numpy(), axis = 0 )
@@ -467,8 +470,9 @@ def save_elmo_rep(model_dir, input_path, output_path, mtype='BiLSTMAttention'):
         else:
             x = x.cpu()
         elmo_dict = model.forward_obtainTrainedElmoRep(x)
-        elmo_rep = elmo_dict['elmo_representations'][0]
-        var_elmo_rep = torch.cat( elmo_rep, dim = 0 ) # concatenate seq of tensors
+        #elmo_rep = elmo_dict['elmo_representations'][0]
+        #var_elmo_rep = torch.cat( elmo_rep, dim = 0 ) # concatenate seq of tensors
+        var_elmo_rep = elmo_dict['elmo_representations'][0]
         var_elmo_rep = var_elmo_rep.view(config.batch_size, DOCUMENT_SEQ_LEN * 1024 ) # 1024 is the Elmo size, fixed
 
         res = numpy.append( res, var_elmo_rep.data.cpu().numpy(), axis = 0 )
@@ -552,10 +556,10 @@ def compute_elmo_rep(model_dir, input_list, mtype = 'BiLSTMAttention'):
 if __name__=='__main__':
     
     ##==========Train with the training set
-    train(  )
+    #train(  )
 
     ##==========Predict with the testing set
-    #predict('%s/0'%SAVE_DIR)
+    #predict('%s/6'%SAVE_DIR)
 
     ##==========Calculate with the predicted result
     #calculate_accuracy('%s/0'%SAVE_DIR)
@@ -566,9 +570,9 @@ if __name__=='__main__':
     
     ##==========Load the trained model, compute and save the representation
     ##          for TokenizedCharEmbedded documents
-    # save_elmo_rep( model_dir = '%s/0'%SAVE_DIR, 
-    #     input_path = '%s/datasets/clinical_reviews_tokenized_charencoded.txt'%ROOT_DIR, 
-    #     output_path = '%s/0/clinical_reviews_embedded.txt'%SAVE_DIR)
+    save_elmo_rep( model_dir = '%s/0'%SAVE_DIR, 
+        input_path = '%s/datasets/clinical_reviews_tokenized_charencoded.txt'%ROOT_DIR, 
+        output_path = '%s/0/clinical_reviews_embedded.txt'%SAVE_DIR)
 
     ##==========Load the trained model, compute the representations 
     ##          for a list of text documents
