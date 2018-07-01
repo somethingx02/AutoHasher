@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 
 #ROOT_DIR = '.' #the root path, currently is the code execution path
-ROOT_DIR = '/media/data1/lixing/2017_2018_2_Aston/AutoHasher/FeatureHashingSenti'
+ROOT_DIR = '/media/data1/lixing/2017_2018_2_Aston/ElmoProj/FeatureHashingSenti'
 
 TRAIN_SET_PATH = '%s/datasets/clinical_reviews_train.csv'%ROOT_DIR
 TEST_SET_PATH = '%s/datasets/clinical_reviews_test.csv'%ROOT_DIR
@@ -9,8 +9,8 @@ TEST_SET_PATH = '%s/datasets/clinical_reviews_test.csv'%ROOT_DIR
 SAVE_DIR = '%s/save'%ROOT_DIR
 
 TRAINING_INSTANCES = 10000
-TESTING_INSTANCES = 5739
-DOCUMENT_SEQ_LEN = 1209
+TESTING_INSTANCES = 15739
+DOCUMENT_SEQ_LEN = 1219
 CHARACTER_EMBEDDING_LEN = 50
 
 CLASS_COUNT = 5 # number of classes for classification  

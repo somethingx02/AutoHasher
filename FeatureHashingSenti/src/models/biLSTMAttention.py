@@ -25,10 +25,9 @@ class BiLSTMAttention(torch.nn.Module):
             param_character_embedding_len, #it depends on the setting
             param_bilstm_hidden_size, # the size of tweet level rnn, since it's biLSTM should be divided twice
             param_attention_size, # attention size should be a smoothed representation of character-emb
-            param_class_count,
+            param_class_count,# class of user labels, in fact it is the class of level 1 labels
             param_options_file, # elmo file for options
-            param_weight_file, # elmo file for weight
-            param_on_cuda): # class of user labels, in fact it is the class of level 1 labels
+            param_weight_file): # elmo file for weight
 
             super(BiLSTMAttention,self).__init__()
             self.modelname='BiLSTMAttention' #same with the class name
@@ -38,55 +37,31 @@ class BiLSTMAttention(torch.nn.Module):
             self.bilstm_hidden_size = param_bilstm_hidden_size
             self.attention_size = param_attention_size
             self.class_count = param_class_count
-            # if param_on_cuda:
-            #     self.ids_only_wordembed_dim = torch.autograd.Variable( torch.LongTensor( [ i for i in range( 0 , self.fix_sentence_length * self.word_embed_size ) ] ) ).cuda()
-            #     self.ids_only_topic_embedding = torch.autograd.Variable( torch.LongTensor( [ i for i in range( self.fix_sentence_length * self.word_embed_size, self.fix_sentence_length * self.word_embed_size + self.topic_embed_size ) ] ) ).cuda()
-            # else:
-            #     self.ids_only_wordembed_dim = torch.autograd.Variable( torch.LongTensor( [ i for i in range( 0 , self.fix_sentence_length * self.word_embed_size ) ] ) ).cpu()
-            #     self.ids_only_topic_embedding = torch.autograd.Variable( torch.LongTensor( [ i for i in range( self.fix_sentence_length * self.word_embed_size, self.fix_sentence_length * self.word_embed_size + self.topic_embed_size ) ] ) ).cpu()
 
             self.elmo_layer = Elmo( param_options_file, param_weight_file, num_output_representations = 1, dropout = 0 )
             self.elmo_hiddensize = 1024 # this is fixed, after elmo_layer, the CharEmbLen should be transferred to ElmoHiddensize
 
             self.bilstm_document_layer_count = 2 # 2 BiLSTM layers
             self.bilstm_document = torch.nn.LSTM( self.elmo_hiddensize, self.bilstm_hidden_size, self.bilstm_document_layer_count, dropout = 0.0, bidirectional = True ) #, default batch_first = False, the batch_size = second
-            
-            # if param_on_cuda:
-            #     self.ids_seq_last = torch.autograd.Variable( torch.LongTensor( [ self.user_self_tweets -1 ] ) ).cuda()
-            # else:
-            #     self.ids_seq_last = torch.autograd.Variable( torch.LongTensor( [ self.user_self_tweets -1 ] ) ).cpu()
-
-            # self.linear_tweet = torch.nn.Linear( self.rnn_tweet_hidden_size, self.word_embed_size)
-            # # mean pooling is functioned as mean after the LSTM
-
-            # self.A_alpha = torch.nn.Parameter( torch.Tensor( ( self.fix_sentence_length ) ) )
-            # # self.B_alpha = torch.nn.Parameter( torch.Tensor( ( self.word_embed_size ) ) ) # you can choose this to be a vector, but this may cause Curse of Dimensionality
-            # self.B_alpha = torch.nn.Parameter( torch.Tensor( ( 1 ) ) ) # can use a single value or matrix
-            # self.A_tweets = torch.nn.Parameter( torch.Tensor( ( self.neighbor_tweets + 1 ) ) ) # attention for twitter embed
-            # self.B_tweets = torch.nn.Parameter( torch.Tensor( ( 1 ) ) ) # attention for twitter embed
-
-            # self.A_alpha.data.normal_(std=0.1)
-            # self.B_alpha.data.normal_(std=0.1)
-            # self.A_tweets.data.normal_(std=0.1)
-            # self.B_tweets.data.normal_(std=0.1)
-
-            #the attention size can be batch-dependent, that is the case in emoj_LSTM, but there we think for all the input the attention is the same
-
-            # self.rnn_hidden_size = param_rnn_hidden_size # hidden size: the vector size of output for each time, It's a vector!
-            # self.rnn_layer_count = 1 #constant, I haven't implemented the dynamic programming yet, but it defines the RNN LayerNum
-            # self.rnn = torch.nn.GRU( self.word_embed_size + self.topic_embed_size , self.rnn_hidden_size ,self.rnn_layer_count , dropout = 0.0 , batch_first = True , bidirectional = False ) # batchfirst: the datasize is [ batch_size, seq , feature ]
-            
+                       
             self.attention_over_seq = Attention( self.attention_size, self.bilstm_hidden_size * 2 ) # to handle biLSTM output
 
             self.linear = torch.nn.Linear( self.elmo_hiddensize , self.class_count )
 
 
         def load(self , path):
+            '''
+            cpu => cpu or
+            gpu => gpu
+            '''
             self.load_state_dict( torch.load(path) )
 
         def save(self, path):
             save_result = torch.save( self.state_dict() , path )
             return save_result
+
+        def load_cpu_from_gputrained(self, path):
+            self.load_state_dict( torch.load(path, map_location = 'cpu') )
 
         def forward( self , param_input ):
             '''
@@ -186,8 +161,7 @@ if __name__ == '__main__':
             param_attention_size = (1024 // 2 * 2) // 1024 * 1024 + (1024 // 2 * 2) % 1024, # attention size should be a smoothed representation of character-emb
             param_class_count = 5,
             param_options_file = "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json",
-            param_weight_file = "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5",
-            param_on_cuda = True)
+            param_weight_file = "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5")
 
     #res=att_model_test( var_input )
     att_model_test = att_model_test.cuda()

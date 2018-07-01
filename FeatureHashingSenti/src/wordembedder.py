@@ -57,8 +57,7 @@ def train(**kwargs):
             param_attention_size = (1024 // 2 * 2) // 1024 * 1024 + (1024 // 2 * 2) % 1024, # attention size should be a smoothed representation of character-emb
             param_class_count = 5,
             param_options_file = config.options_file,
-            param_weight_file = config.weight_file,
-            param_on_cuda = False)
+            param_weight_file = config.weight_file)
 
     if config.on_cuda:
         logger.info('Model run on GPU')
@@ -236,19 +235,27 @@ def predict( model_dir, mtype='BiLSTMAttention'):
             param_attention_size = (1024 // 2 * 2) // 1024 * 1024 + (1024 // 2 * 2) % 1024, # attention size should be a smoothed representation of character-emb
             param_class_count = 5,
             param_options_file = config.options_file,
-            param_weight_file = config.weight_file,
-            param_on_cuda = True)
+            param_weight_file = config.weight_file)
     print('Loading trained model')
-    model.load( model_path )
 
     if config.on_cuda:
         config.on_cuda = torch.cuda.is_available()
         if config.on_cuda == False:
             print('Cuda is unavailable, Although wants to run on cuda, Model still run on CPU')
 
+    # here, load and save are defined in biLSTMAttention.py
+    # load <=> model.load_state_dict( torch.load(path) )
+    # save <=> torch.save( model.state_dict(), path )
+
+    # an other way:
+    # model = torch.load( path ) # has 2 field, if torch.save( model, path ), then both ['state_dict'] and ['struct'] != None
+    # torch.save( model, path )
+
     if config.on_cuda:
+        model.load( model_path )
         model=model.cuda()
     else:
+        model.load_cpu_from_gputrained( model_path )
         model=model.cpu()
     
     print('Begin loading data')
@@ -314,19 +321,27 @@ def save_elmo_rep_testset(model_dir, output_path, mtype='BiLSTMAttention'):
             param_attention_size = (1024 // 2 * 2) // 1024 * 1024 + (1024 // 2 * 2) % 1024, # attention size should be a smoothed representation of character-emb
             param_class_count = 5,
             param_options_file = config.options_file,
-            param_weight_file = config.weight_file,
-            param_on_cuda = True)
+            param_weight_file = config.weight_file)
     print('Loading trained model')
-    model.load( model_path )
 
     if config.on_cuda:
         config.on_cuda = torch.cuda.is_available()
         if config.on_cuda == False:
             print('Cuda is unavailable, Although wants to run on cuda, Model still run on CPU')
 
+    # here, load and save are defined in biLSTMAttention.py
+    # load <=> model.load_state_dict( torch.load(path) )
+    # save <=> torch.save( model.state_dict(), path )
+
+    # an other way:
+    # model = torch.load( path ) # has 2 field, if torch.save( model, path ), then both ['state_dict'] and ['struct'] != None
+    # torch.save( model, path )
+
     if config.on_cuda:
+        model.load( model_path )
         model=model.cuda()
     else:
+        model.load_cpu_from_gputrained( model_path )
         model=model.cpu()
     
     # print(model)
@@ -418,19 +433,27 @@ def save_elmo_rep(model_dir, input_path, output_path, mtype='BiLSTMAttention'):
             param_attention_size = (1024 // 2 * 2) // 1024 * 1024 + (1024 // 2 * 2) % 1024, # attention size should be a smoothed representation of character-emb
             param_class_count = 5,
             param_options_file = config.options_file,
-            param_weight_file = config.weight_file,
-            param_on_cuda = True)
+            param_weight_file = config.weight_file)
     print('Loading trained model')
-    model.load( model_path )
 
     if config.on_cuda:
         config.on_cuda = torch.cuda.is_available()
         if config.on_cuda == False:
             print('Cuda is unavailable, Although wants to run on cuda, Model still run on CPU')
 
+    # here, load and save are defined in biLSTMAttention.py
+    # load <=> model.load_state_dict( torch.load(path) )
+    # save <=> torch.save( model.state_dict(), path )
+
+    # an other way:
+    # model = torch.load( path ) # has 2 field, if torch.save( model, path ), then both ['state_dict'] and ['struct'] != None
+    # torch.save( model, path )
+
     if config.on_cuda:
+        model.load( model_path )
         model=model.cuda()
     else:
+        model.load_cpu_from_gputrained( model_path )
         model=model.cpu()
     
     # print(model)
@@ -533,13 +556,22 @@ def compute_elmo_rep(model_dir, input_list, mtype = 'BiLSTMAttention'):
         param_attention_size = (1024 // 2 * 2) // 1024 * 1024 + (1024 // 2 * 2) % 1024, # attention size should be a smoothed representation of character-emb
         param_class_count = 5,
         param_options_file = config.options_file,
-        param_weight_file = config.weight_file,
-        param_on_cuda = True)
+        param_weight_file = config.weight_file)
     print('Loading trained model')
-    model.load( model_path )
+    
+    # here, load and save are defined in biLSTMAttention.py
+    # load <=> model.load_state_dict( torch.load(path) )
+    # save <=> torch.save( model.state_dict(), path )
+
+    # an other way:
+    # model = torch.load( path ) # has 2 field, if torch.save( model, path ), then both ['state_dict'] and ['struct'] != None
+    # torch.save( model, path )
+
     if config.on_cuda:
+        model.load( model_path )
         model=model.cuda()
     else:
+        model.load_cpu_from_gputrained( model_path )
         model=model.cpu()
 
     elmo_dict = model.forward_obtainTrainedElmoRep(x)
